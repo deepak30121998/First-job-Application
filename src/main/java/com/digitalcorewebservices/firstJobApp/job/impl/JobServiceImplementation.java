@@ -1,43 +1,36 @@
-package com.digitalcorewebservices.firstJobApp.impl;
+package com.digitalcorewebservices.firstJobApp.job.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.digitalcorewebservices.Job;
-import com.digitalcorewebservices.firstJobApp.JobRepository;
-import com.digitalcorewebservices.firstJobApp.JobService;
+import com.digitalcorewebservices.firstJobApp.job.Job;
+import com.digitalcorewebservices.firstJobApp.job.JobRepository;
+import com.digitalcorewebservices.firstJobApp.job.JobService;
 
 @Service
 public class JobServiceImplementation implements JobService {
 
-    // private List<Job> Jobs = new ArrayList<>();
     JobRepository jobRepository;
-    private Long idCounter = 1L;
 
     public JobServiceImplementation(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
     }
 
-
     @Override
-    public void createJob(com.digitalcorewebservices.Job job) {
-        job.setId(idCounter++);
+    public void createJob(Job job) {
         jobRepository.save(job);
-        
     }
 
     @Override
-    public List<com.digitalcorewebservices.Job> findAll() {
+    public List<Job> findAll() {
         return jobRepository.findAll();
     }
 
     @Override
     public Job findJobById(Long id) {
-        Job job = jobRepository.findById(id).orElse(null);
-        return job;
+        return jobRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -61,6 +54,7 @@ public class JobServiceImplementation implements JobService {
                 job.setMinSalary(updatedJob.getMinSalary());
                 job.setMaxSalary(updatedJob.getMaxSalary());
                 job.setLocation(updatedJob.getLocation());
+                jobRepository.save(job);
                 return true;
             }
         }

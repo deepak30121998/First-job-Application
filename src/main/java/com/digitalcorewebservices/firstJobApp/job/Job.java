@@ -1,4 +1,4 @@
-package com.digitalcorewebservices;
+package com.digitalcorewebservices.firstJobApp.job;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

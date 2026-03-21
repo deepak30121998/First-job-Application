@@ -1,8 +1,6 @@
-package com.digitalcorewebservices.firstJobApp;
+package com.digitalcorewebservices.firstJobApp.job;
 
 import java.util.List;
-
-import com.digitalcorewebservices.Job;
 
 public interface JobService {
     List<Job> findAll();

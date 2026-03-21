@@ -1,4 +1,4 @@
-package com.digitalcorewebservices.firstJobApp;
+package com.digitalcorewebservices.firstJobApp.job;
 
 import java.util.List;
 
@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.digitalcorewebservices.Job;
 
 @RestController
 @RequestMapping("/jobs")
@@ -47,19 +45,16 @@ public class JobController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteJobById(@PathVariable Long id) {
         boolean isDeleted = jobService.deleteJobById(id);
-        if (isDeleted) 
+        if (isDeleted)
             return new ResponseEntity<>("Job Deleted Successfully", HttpStatus.OK);
         return new ResponseEntity<>("Job Not Found", HttpStatus.NOT_FOUND);
     }
-    
-    
+
     @PutMapping("/{id}")
     public ResponseEntity<String> updateJobById(@PathVariable Long id, @RequestBody Job updatedJob) {
         boolean updated = jobService.updateJobById(id, updatedJob);
-        if (updated) 
+        if (updated)
             return new ResponseEntity<>("Job Updated Successfully", HttpStatus.OK);
         return new ResponseEntity<>("Job Not Found", HttpStatus.NOT_FOUND);
     }
-
-
 }

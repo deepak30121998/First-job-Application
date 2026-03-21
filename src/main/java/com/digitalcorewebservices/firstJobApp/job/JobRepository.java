@@ -1,10 +1,7 @@
-package com.digitalcorewebservices.firstJobApp;
+package com.digitalcorewebservices.firstJobApp.job;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.digitalcorewebservices.Job;
-
 public interface JobRepository extends JpaRepository<Job, Long> {
 
-    
-} 
+}
