@@ -38,4 +38,23 @@ public class ReviewServiceImplementation implements ReviewService {
         }
         return false;
     }
+
+    @Override
+    public Review findReviewByReviewId(Long companyId, Long reviewId) {
+        return reviewRepository.findByIdAndCompanyId(reviewId, companyId);
+    }
+
+    @Override
+    public boolean updateReviewById(Long companyId, Long reviewId, Review updatedReview) {
+        Review review = reviewRepository.findByIdAndCompanyId(reviewId, companyId);
+        if (review != null) {
+            review.setComment(updatedReview.getComment());
+            review.setRating(updatedReview.getRating());
+            review.setReviewerName(updatedReview.getReviewerName());
+            reviewRepository.save(review);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
