@@ -1,6 +1,6 @@
 # First Job Application
 
-A RESTful API built with Spring Boot for managing job listings and companies.
+A RESTful API built with Spring Boot for managing job listings, companies, and reviews.
 
 ## Tech Stack
 
@@ -48,10 +48,12 @@ The server starts at `http://localhost:8080`.
 
 ### Reviews
 
-| Method | Endpoint                          | Description                          |
-|--------|-----------------------------------|--------------------------------------|
-| GET    | `/companies/{companyId}/reviews`  | Get all reviews for a company        |
-| POST   | `/companies/{companyId}/reviews`  | Create a review for a company        |
+| Method | Endpoint                                        | Description                          |
+|--------|-------------------------------------------------|--------------------------------------|
+| GET    | `/companies/{companyId}/reviews`                | Get all reviews for a company        |
+| POST   | `/companies/{companyId}/reviews`                | Create a review for a company        |
+| GET    | `/companies/{companyId}/reviews/{reviewId}`     | Get a specific review                |
+| PUT    | `/companies/{companyId}/reviews/{reviewId}`     | Update a review by ID                |
 
 ## Models
 
