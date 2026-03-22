@@ -3,6 +3,7 @@ package com.digitalcorewebservices.firstJobApp.company;
 import java.util.List;
 
 import com.digitalcorewebservices.firstJobApp.job.Job;
+import com.digitalcorewebservices.firstJobApp.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -24,6 +25,10 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "company") 
+    private List<Review> reviews;
 
     public Company() {
     }

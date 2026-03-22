@@ -46,6 +46,13 @@ The server starts at `http://localhost:8080`.
 | PUT    | `/companies/{id}` | Update a company by ID   |
 | DELETE | `/companies/{id}` | Delete a company by ID   |
 
+### Reviews
+
+| Method | Endpoint                          | Description                          |
+|--------|-----------------------------------|--------------------------------------|
+| GET    | `/companies/{companyId}/reviews`  | Get all reviews for a company        |
+| POST   | `/companies/{companyId}/reviews`  | Create a review for a company        |
+
 ## Models
 
 ### Job
@@ -75,5 +82,16 @@ The server starts at `http://localhost:8080`.
   "name": "EnterSlice Private Limited",
   "address": "B-60 NOIDA",
   "description": "X company"
+}
+```
+
+### Review
+
+```json
+{
+  "id": 1,
+  "reviewerName": "Test",
+  "comment": "Test Review",
+  "rating": 2
 }
 ```
