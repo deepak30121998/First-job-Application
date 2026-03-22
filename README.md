@@ -1,12 +1,14 @@
 # First Job Application
 
-A RESTful API built with Spring Boot for managing job listings.
+A RESTful API built with Spring Boot for managing job listings and companies.
 
 ## Tech Stack
 
 - Java 17
 - Spring Boot 4.0.4
 - Spring Web MVC
+- Spring Data JPA
+- H2 Database (in-memory)
 - Maven
 
 ## Getting Started
@@ -34,7 +36,19 @@ The server starts at `http://localhost:8080`.
 | PUT    | `/jobs/{id}`  | Update a job by ID  |
 | DELETE | `/jobs/{id}`  | Delete a job by ID  |
 
-## Job Model
+### Companies
+
+| Method | Endpoint          | Description              |
+|--------|-------------------|--------------------------|
+| GET    | `/companies`      | Get all companies        |
+| GET    | `/companies/{id}` | Get company by ID        |
+| POST   | `/companies`      | Create a new company     |
+| PUT    | `/companies/{id}` | Update a company by ID   |
+| DELETE | `/companies/{id}` | Delete a company by ID   |
+
+## Models
+
+### Job
 
 ```json
 {
@@ -43,6 +57,23 @@ The server starts at `http://localhost:8080`.
   "description": "Java Spring Boot developer role",
   "minSalary": "50000",
   "maxSalary": "80000",
-  "location": "Remote"
+  "location": "Remote",
+  "company": {
+    "id": 1,
+    "name": "EnterSlice Private Limited",
+    "address": "B-60 NOIDA",
+    "description": "X company"
+  }
+}
+```
+
+### Company
+
+```json
+{
+  "id": 1,
+  "name": "EnterSlice Private Limited",
+  "address": "B-60 NOIDA",
+  "description": "X company"
 }
 ```
